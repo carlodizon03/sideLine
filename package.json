@@ -1,0 +1,22 @@
+{
+  "main": "index.js",
+  "scripts": {
+  "start": "ts-node src/index.ts",
+  "dev": "nodemon src/index.ts",
+  "build": "tsc -p ."
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.16",
+    "typescript": "^5.0.4"
+    
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.1.4",
+    "typescript": "^5.0.4"
+
+  }
+}
