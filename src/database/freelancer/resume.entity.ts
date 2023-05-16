@@ -1,4 +1,3 @@
-import internal from "stream";
 import {
   CreateDateColumn,
   DeleteDateColumn,
@@ -6,36 +5,20 @@ import {
   UpdateDateColumn,
   PrimaryGeneratedColumn,
   Column,
+  ManyToOne,
 } from "typeorm";
+import { User } from "./freelancer.entity";
 
 @Entity()
-export class User {
+export class Resume {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column({ length: 100 })
-  userName: string;
+  @Column()
+  title: string;
 
   @Column()
-  passwordHash: string;
-
-  @Column({ length: 100 })
-  firstName: string;
-
-  @Column({ length: 100 })
-  lastName: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  address: string;
-
-  @Column()
-  roleCode: number;
-
-  @Column()
-  isVerified: boolean;
+  content: string;
 
   @CreateDateColumn()
   createdDate: Date;
@@ -45,4 +28,13 @@ export class User {
 
   @DeleteDateColumn()
   deletedDate: Date;
+
+  @Column()
+  createdBy: string;
+
+  @Column()
+  updatedBy: string;
+
+  @ManyToOne(() => User, (user) => user.resumes)
+  user: User;
 }
