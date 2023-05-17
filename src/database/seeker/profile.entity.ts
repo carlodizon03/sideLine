@@ -1,15 +1,15 @@
 import {
-  CreateDateColumn,
-  DeleteDateColumn,
   Entity,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
   OneToMany,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
-import { User } from "./freelancer.entity";
+import { Seeker } from "./seeker-entity";
 import { JobHistory } from "./job-history.entity";
+import { Resume } from "./resume.entity";
 
 @Entity()
 export class Profile {
@@ -22,9 +22,13 @@ export class Profile {
   @Column()
   content: string;
 
-  @ManyToOne(() => User, (user) => user.profiles)
-  user: User;
+  @ManyToOne(() => Seeker, (seeker) => seeker.profiles)
+  seeker: Seeker;
 
   @OneToMany(() => JobHistory, (jobHistory) => jobHistory.profile)
   history: JobHistory[];
+
+  @OneToOne(() => Resume)
+  @JoinColumn()
+  resume:Resume
 }

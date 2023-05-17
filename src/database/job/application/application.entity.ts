@@ -1,28 +1,24 @@
 import {
-  CreateDateColumn,
-  DeleteDateColumn,
   Entity,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  OneToMany,
   OneToOne,
   JoinColumn,
 } from "typeorm";
-import { User } from "../freelancer/freelancer.entity";
-import { Resume } from "../freelancer/resume.entity";
+import { Seeker } from "../../seeker/seeker-entity";
+import { Resume } from "../../seeker/resume.entity";
 import { ApplicationStatus } from "./application-status";
-import { Job } from "./job.entity";
+import { Job } from "../job.entity";
 
 @Entity()
 export class Application {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @OneToOne(() => User)
+  @OneToOne(() => Seeker)
   @JoinColumn()
-  applicant: User;
+  applicant: Seeker;
 
   @Column()
   coverLetter: string;

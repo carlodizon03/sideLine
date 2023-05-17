@@ -6,9 +6,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
 } from "typeorm";
-import { User } from "./freelancer.entity";
-
+import { Seeker } from "./seeker-entity";
+import { Skill } from "../skill/skill.entity";
 @Entity()
 export class Resume {
   @PrimaryGeneratedColumn("increment")
@@ -35,6 +36,9 @@ export class Resume {
   @Column()
   updatedBy: string;
 
-  @ManyToOne(() => User, (user) => user.resumes)
-  user: User;
+  @ManyToOne(() => Seeker, (seeker) => seeker.resumes)
+  seeker: Seeker;
+
+  @OneToMany(() => Skill, (skill) => skill.resume)
+  skills: Skill[];
 }

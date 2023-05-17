@@ -5,26 +5,32 @@ import {
   UpdateDateColumn,
   PrimaryGeneratedColumn,
   Column,
-  ManyToOne,
   OneToMany,
   OneToOne,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm";
+import { Profile } from "./profile.entity";
 import { Job } from "../job/job.entity";
 
 @Entity()
-export class Company {
+export class JobHistory {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column()
-  name: string;
+  @OneToOne(() => Job)
+  @JoinColumn()
+  job: Job;
 
   @Column()
-  location: string;
+  description: string;
 
   @Column()
-  about: string;
+  start: Date;
 
-  @OneToMany(() => Job, (job) => job.company)
-  job: Job[];
+  @Column()
+  end: Date;
+
+  @ManyToOne(() => Profile, (profile) => profile.history)
+  profile: Profile;
 }

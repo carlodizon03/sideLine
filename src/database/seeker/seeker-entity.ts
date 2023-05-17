@@ -9,9 +9,9 @@ import {
 } from "typeorm";
 import { Resume } from "./resume.entity";
 import { Profile } from "./profile.entity";
-
+import { Document } from "./document/document.entity";
 @Entity()
-export class Freelancer {
+export class Seeker {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
@@ -51,9 +51,15 @@ export class Freelancer {
   @Column()
   updatedBy: string;
 
-  @OneToMany(() => Resume, (resume) => resume.user)
+  @Column()
+  deletedBy: string;
+
+  @OneToMany(() => Resume, (resume) => resume.seeker)
   resumes: Resume[];
 
-  @OneToMany(() => Profile, (profile) => profile.user)
+  @OneToMany(() => Profile, (profile) => profile.seeker)
   profiles: Profile[];
+
+  @OneToMany(() => Document, (document) => document.seeker)
+  documents: Document[];
 }
