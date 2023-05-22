@@ -10,50 +10,9 @@ import {
 import { Resume } from "./resume.entity";
 import { Profile } from "./profile.entity";
 import { Document } from "./document/document.entity";
+import { User } from "../user/user-entity";
 @Entity()
-export class Seeker {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
-
-  @Column({ length: 100 })
-  userName: string;
-
-  @Column()
-  passwordHash: string;
-
-  @Column({ length: 100 })
-  firstName: string;
-
-  @Column({ length: 100 })
-  lastName: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  address: string;
-
-  @Column()
-  isVerified: boolean;
-
-  @CreateDateColumn()
-  createdDate: Date;
-
-  @UpdateDateColumn()
-  updatedDate: Date;
-
-  @DeleteDateColumn()
-  deletedDate: Date;
-
-  @Column()
-  createdBy: string;
-
-  @Column()
-  updatedBy: string;
-
-  @Column()
-  deletedBy: string;
-
+export class Seeker extends User {
   @OneToMany(() => Resume, (resume) => resume.seeker)
   resumes: Resume[];
 

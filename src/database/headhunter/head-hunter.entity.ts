@@ -11,30 +11,10 @@ import {
 } from "typeorm";
 import { Company } from "../company/company.entity";
 import { Job } from "../job/job.entity";
+import { User } from "../user/user-entity";
 
 @Entity()
-export class HeadHunter {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
-
-  @Column()
-  username: string;
-
-  @Column()
-  passwordHash: string;
-
-  @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  address: string;
-
+export class HeadHunter extends User {
   @OneToOne(() => Company)
   @JoinColumn()
   company: Company;
@@ -42,27 +22,8 @@ export class HeadHunter {
   @Column()
   companyRole: string;
 
-  @Column()
-  isVerified: boolean;
-
   @OneToMany(() => Job, (job) => job.headHunter)
   jobs: Job[];
 
-  @CreateDateColumn()
-  createdDate: Date;
-
-  @UpdateDateColumn()
-  updateDate: Date;
-
-  @DeleteDateColumn()
-  deleteDate: Date;
-
-  @Column()
-  createdBy: string;
-
-  @Column()
-  updatedBy: string;
-
-  @Column()
-  deletedBy: string;
+ 
 }
