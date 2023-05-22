@@ -16,3 +16,9 @@ When you initially run the server, typeorm will automatically create the tables 
 
 `npm start`
 
+
+
+
+# TODO
+1. Views?
+2. CRUD functions: determine what does the frontend need
