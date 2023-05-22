@@ -9,7 +9,7 @@ import {
   OneToMany,
 } from "typeorm";
 import { Seeker } from "./seeker-entity";
-import { Skill } from "../skill/skill.entity";
+import { Skill } from "../tables/skill/skill.entity";
 @Entity()
 export class Resume {
   @PrimaryGeneratedColumn("increment")

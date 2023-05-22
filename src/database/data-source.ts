@@ -1,25 +1,24 @@
 import "dotenv/config";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { Seeker } from "./seeker/seeker-entity";
-import { Company } from "./company/company.entity";
-import { HeadHunter } from "./headhunter/head-hunter.entity";
-import { Job } from "./job/job.entity";
-import { JobDescription } from "./job/job-description.entity";
-import { JobStatus } from "./job/job-status";
-import { JobType } from "./job/job-type.entity";
-import { PayPeriod } from "./job/pay-period.entity";
-import { PositionLevel } from "./job/position-level.entity";
-import { Application } from "./job/application/application.entity";
-import { ApplicationStatus } from "./job/application/application-status";
-import { Document } from "./seeker/document/document.entity";
-import { DocumentType } from "./seeker/document/type.entity";
-import { JobHistory } from "./seeker/job-history.entity";
-import { profile } from "console";
-import { Profile } from "./seeker/profile.entity";
-import { Resume } from "./seeker/resume.entity";
-import { Field } from "./skill/field.entity";
-import { Skill } from "./skill/skill.entity";
+import { Seeker } from "./tables/seeker/seeker-entity";
+import { Company } from "./tables/company/company.entity";
+import { HeadHunter } from "./tables/headhunter/head-hunter.entity";
+import { Job } from "./tables/job/job.entity";
+import { JobDescription } from "./tables/job/job-description.entity";
+import { JobStatus } from "./tables/job/job-status";
+import { JobType } from "./tables/job/job-type.entity";
+import { PayPeriod } from "./tables/job/pay-period.entity";
+import { PositionLevel } from "./tables/job/position-level.entity";
+import { Application } from "./tables/job/application/application.entity";
+import { ApplicationStatus } from "./tables/job/application/application-status";
+import { Document } from "./tables/seeker/document/document.entity";
+import { DocumentType } from "./tables/seeker/document/type.entity";
+import { JobHistory } from "./tables/seeker/job-history.entity";
+import { Profile } from "./tables/seeker/profile.entity";
+import { Resume } from "./tables/seeker/resume.entity";
+import { Field } from "./tables/skill/field.entity";
+import { Skill } from "./tables/skill/skill.entity";
 
 export const AppDataSource = new DataSource({
   type: "mysql",

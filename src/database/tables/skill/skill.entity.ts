@@ -7,8 +7,8 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Field } from "./field.entity";
-import { JobDescription } from "../job/job-description.entity";
-import { Resume } from "../seeker/resume.entity";
+import { JobDescription } from "../../job/job-description.entity";
+import { Resume } from "../../seeker/resume.entity";
 
 @Entity()
 export class Skill {
